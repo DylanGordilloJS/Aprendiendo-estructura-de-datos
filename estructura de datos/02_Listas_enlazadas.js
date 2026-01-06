@@ -38,14 +38,16 @@ const nod3 = new oraganizar("tasa")
 
 ndo1.next = ndo2
 ndo2.next = nod3
-
+console.log("___________________________________")
 console.log(ndo1.data)
 console.log(ndo1.next.data)
 console.log(ndo1.next.next.data)
+console.log("___________________________________")
+
 
 // interpolacion 
 
-console.log(`estos son los nodos  ${ndo1.data} => ${ndo1.next.data} => ${ndo1.next.next.data} => null`)
+// console.log(`estos son los nodos  ${ndo1.data} => ${ndo1.next.data} => ${ndo1.next.next.data} => null`)
 
 
 
@@ -71,6 +73,7 @@ vagon2.gancho = vagon3
 
 
 let actual =  vagon1
+console.log("___________________________________")
 // mientra el vagon donde estoy no sea vacio
 while (actual !== null) {
    // e; vagon donde estoy
@@ -78,6 +81,7 @@ while (actual !== null) {
    // para que comine a los siguentes vagones
    actual = actual.gancho
 }
+console.log("___________________________________")
 
 // ejemplo de   de Collar nodos 
 
@@ -96,14 +100,18 @@ class EstucheDeCollar {
     LinkedList(Nombres){
       const Nueva_bola = new Collar(Nombres)
        if(this.iniciodelhilo ===  null) {
-         this.iniciodelhilo = Nueva_bola
+         this.iniciodelhilo = Nueva_bola  // esta tendria el primer nodo
          return
        }
-       let  actual =this.iniciodelhilo
-       while ( actual.hilo !== null) {
-               actual =actual.hilo
+
+       let  actual = this.iniciodelhilo  // con el primer nodo
+       // mientras  el nodo actul no sea  vasio
+       while ( actual.hilo !== null) {   // diamate - 
+         // para que valla vanzado ente nodos 
+                actual = actual.hilo
        }
-       actual.hilo = Nueva_bola
+       //avanda y pone la bola
+          actual.hilo = Nueva_bola // aca   se le agrega el nodo  cuando se queda quito
     }
 
    print() {
@@ -118,25 +126,11 @@ class EstucheDeCollar {
     }
 }
 
+
+console.log("___________________________________")
 const miCollar = new EstucheDeCollar();
 miCollar.LinkedList("Perla");
 miCollar.LinkedList("Rubí");
 miCollar.LinkedList("Diamante");
-
-// cracion de nodos ||  descoracon
-
-// const  Decoracion1 = new Collar("bola 1")
-// const  descoracon2 = new Collar("bola 2")
-// const  descoracon3 = new Collar("bola 3")
-// const  descoracon4 = new Collar("bola 4")
-// const  descoracon5 = new Collar("bola 5")
-
-// //conexion de decoracion 
-
-// Decoracion1.hilo = descoracon2
-// descoracon2.hilo = descoracon3
-// descoracon3.hilo = descoracon4
-// descoracon4.hilo = descoracon5
-
-
-
+miCollar.print()
+console.log("----------------------------------")
