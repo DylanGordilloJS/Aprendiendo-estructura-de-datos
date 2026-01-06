@@ -30,10 +30,6 @@ class oraganizar {
       this.data = data
       this.next = null
    }
-
-   agregar(valor) {
-      const nuevonodo = new Nodo()
-   }
 }
 
 const ndo1 = new oraganizar("hola")
@@ -49,9 +45,7 @@ console.log(ndo1.next.next.data)
 
 // interpolacion 
 
-
 console.log(`estos son los nodos  ${ndo1.data} => ${ndo1.next.data} => ${ndo1.next.next.data} => null`)
-
 
 
 
@@ -85,54 +79,64 @@ while (actual !== null) {
    actual = actual.gancho
 }
 
-// ejemplo de   de collar nodos 
+// ejemplo de   de Collar nodos 
 
-class collar {
+class Collar {
    constructor(decoracion) {
       this.decoracion =decoracion
       this.hilo = null
    }
 }
 
-class Estuche {
-   constructor() {
-      this.findehilo = null
-      this.inicioDehilo = null
-   }
-
-    agregar(nombre) {
-      const Nueva_bola = new collar(nombre)
-      if(this.inicioDehilo === null) {
-         this.inicioDehilo = Nueva_bola
-         this.findehilo = Nueva_bola
-         return
-      }
-      this.findehilo.next = Nueva_bola
-      this.findehilo = Nueva_bola
+class EstucheDeCollar {
+    constructor () {
+       this.iniciodelhilo = null
     }
 
+    LinkedList(Nombres){
+      const Nueva_bola = new Collar(Nombres)
+       if(this.iniciodelhilo ===  null) {
+         this.iniciodelhilo = Nueva_bola
+         return
+       }
+       let  actual =this.iniciodelhilo
+       while ( actual.hilo !== null) {
+               actual =actual.hilo
+       }
+       actual.hilo = Nueva_bola
+    }
+
+   print() {
+   let Actual_decoracion = this.iniciodelhilo
+   // minetras la decoarion no sea nada
+   while (Actual_decoracion !== null) {
+   // aca son dice en donde estamos 
+   console.log(` conectando todo las bolas ${Actual_decoracion.decoracion}`)
+   // aca avanzada cada interacion  
+   Actual_decoracion = Actual_decoracion.hilo
+   }
+    }
 }
+
+const miCollar = new EstucheDeCollar();
+miCollar.LinkedList("Perla");
+miCollar.LinkedList("Rubí");
+miCollar.LinkedList("Diamante");
 
 // cracion de nodos ||  descoracon
 
-const  descoracon1 = new collar("bola 1")
-const  descoracon2 = new collar("bola 2")
-const  descoracon3 = new collar("bola 3")
-const  descoracon4 = new collar("bola 4")
-const  descoracon5 = new collar("bola 5")
+// const  Decoracion1 = new Collar("bola 1")
+// const  descoracon2 = new Collar("bola 2")
+// const  descoracon3 = new Collar("bola 3")
+// const  descoracon4 = new Collar("bola 4")
+// const  descoracon5 = new Collar("bola 5")
 
-//conexion de decoracion 
+// //conexion de decoracion 
 
-descoracon1.hilo = descoracon2
-descoracon2.hilo = descoracon3
-descoracon3.hilo = descoracon4
-descoracon4.hilo = descoracon5
+// Decoracion1.hilo = descoracon2
+// descoracon2.hilo = descoracon3
+// descoracon3.hilo = descoracon4
+// descoracon4.hilo = descoracon5
 
- let Actual_decoacion = descoracon1
-// minetras la decoarion no sea nada
-while (Actual_decoacion !== null) {
-   // aca son dice en donde estamos 
-  console.log(` conectando todo las bolas ${Actual_decoacion.decoracion}`)
-   // aca avanzada cada interacion  
-  Actual_decoacion = Actual_decoacion.hilo
-}
+
+
