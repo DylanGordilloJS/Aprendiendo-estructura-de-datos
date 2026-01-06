@@ -175,13 +175,18 @@ function cub () {
 
 console.log(cub())
 
-function vecionos () {
-    let pouter = 0 
-     const arr = [2,2,3,1]
-    for (let i = 1; i < Math.random()*11; i++) {
-            console.log(i)
+// entendimiento del Swap
+
+function prectica () {
+    let arr = [7,9]
+    for(let i= 0; i <arr.length ; i++)
+        for(let j= 0; j < arr.length; j++){
+            if(arr[j] < arr[j+1]){
+                let temporal = arr[j] // guerdas 
+                arr[j] = arr[j+1]  //  muevs
+                arr[j+1] = temporal // recuperas
+            }
     }
     return arr
 }
-
-console.log(vecionos())
+console.log(prectica())
