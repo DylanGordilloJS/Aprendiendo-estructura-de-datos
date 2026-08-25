@@ -190,3 +190,6 @@ function prectica () {
     return arr
 }
 console.log(prectica())
+
+
+

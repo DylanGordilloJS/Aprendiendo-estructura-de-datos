@@ -81,3 +81,5 @@ const descuente = 0.10
 const total_pagar = 2000
 const inscripción = false
 let total = (`${'total a pagar '} ${(descuente * total_pagar)}`)
+
+
