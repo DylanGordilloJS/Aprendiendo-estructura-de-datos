@@ -219,3 +219,78 @@ se usa como  en google  o
 */
 
 
+
+class ropa {
+   constructor (value){
+    this.value = value // nodo 
+    this.arrow = null // del de la siguiente
+   }
+
+
+}
+
+class conjuntos {
+   constructor () {
+    this.head = null // la cabeza que apunta a null
+   }
+
+  datos (value) {
+    const maraca  = new ropa(value) 
+    if (!this.head){ // si esta vacia apunta a null
+      this.head = maraca
+      return
+    }
+    let  actual  = this.head  // variable con todos los datos de head actuales
+    while (actual.arrow){ // recorremos todos los datos hasta el final
+      actual = actual.arrow 
+    }
+    actual.arrow = maraca  //cuando llega al final agregamos el nuevo valor o nodo 
+  }
+  // nuevo metodo borra duplicados
+    eliminarduplicados () {
+      if (!this.head) return ;
+
+      let valoresvistos  = new Set()     
+
+      let actual = this.head;
+      let anterior = null 
+      while (actual) {
+        if (valoresvistos.has(actual.value)) {
+          anterior.arrow = actual.arrow
+        }else{
+          valoresvistos.add(actual.value)
+          anterior = actual
+        }
+        actual = actual.arrow
+      }
+    }
+  reversa () {
+      let current = this.head
+      let lista = []
+      while (current){
+        lista.push(current.value)
+          current = current.arrow
+      }
+    console.log(`${lista.reverse().join(" -> ") + " -> null"}`)
+  }
+  observar () {
+    let current = this.head
+    let list = []
+    while(current){
+      list.push(current.value)  // metemos todo el valor  en un lista 
+      current = current.arrow // recorre y los agrega en la lista 
+    }
+      console.log(list.join(" -> ") + " -> null") // nos imprime los nodos  en memoria 
+  }
+}
+
+// inicializamos  para la agregacion de valores
+const valor = new conjuntos()
+valor.datos(1)
+valor.datos(2)
+valor.datos(2)
+valor.reversa()
+valor.observar()
+
+
+
