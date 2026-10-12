@@ -26,7 +26,7 @@ class pila2 {
 }
 
 // instacia de de recolacion de objectos
-const obj =  name = new pila2();
+const obj   = new pila2();
 obj.join(2);
 obj.join('hola');
 obj.print_regresar_end() 

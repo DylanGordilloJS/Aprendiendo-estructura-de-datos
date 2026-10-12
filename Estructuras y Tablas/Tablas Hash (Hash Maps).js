@@ -144,3 +144,72 @@ console.log(primerCaracterUnico("swiss"));
 console.log(primerCaracterUnico("programacion")); 
 
 console.log(primerCaracterUnico("aabbcc"));   
+
+
+console.log("||||||||||||||||||||||||||sumados numeros|||||||||||||||| ")
+
+function dosSumas(numeros, objetivo) {
+  let visto = new Map(); // Guardará: numero => indice
+
+  for (let i = 0; i < numeros.length; i++) {
+    let num = numeros[i];
+    let complemento = objetivo - num;
+    // TODO 1: Verificar si el 'complemento' ya existe en el Map 'visto'
+    if (visto.has(complemento)){
+        return [visto.get(complemento), i ]
+    }
+
+        visto.set(num, i)
+    
+    // TODO 2: Si existe, retornar un arreglo con [visto.get(complemento), i]
+    
+    // TODO 3: Si no existe, guardar el número actual en el Map: visto.set(num, i)
+  }
+
+  return []; // Si no encuentra ningún par
+}
+
+// Casos de prueba:
+console.log(dosSumas([2, 7, 11, 15], 9)); 
+// Debería imprimir: [0, 1]  (porque numeros[0] + numeros[1] => 2 + 7 = 9)
+
+console.log(dosSumas([3, 2, 4], 6));      
+// Debería imprimir: [1, 2]  (porque numeros[1] + numeros[2] => 2 + 4 = 6)
+
+console.log('||||||||||||||||||AGREAGAR USUARIO POR ROL|||||||||||||||||||||||||')
+
+
+const usuarios = [
+  { nombre: "Ana", rol: "admin" },
+  { nombre: "Carlos", rol: "editor" },
+  { nombre: "Elena", rol: "admin" },
+  { nombre: "Luis", rol: "usuario" },
+  { nombre: "Marta", rol: "editor" }
+];
+
+function agruparPorRol(lista) {
+  let grupos = new Map();
+
+  for (let i = 0; i < lista.length; i++) {
+    let u = lista[i];
+    if (grupos.has(u.rol)){
+        grupos.get(u.rol).push(u.nombre)
+    }else{
+        grupos.set(u.rol,[u.nombre])
+    }
+
+    // TODO 1: Verificar si el rol ya existe en el Map
+    // TODO 2: Si el rol ya existe, agregar el nombre al arreglo del rol usando .push()
+    // TODO 3: Si el rol no existe, inicializar el rol en el Map con un arreglo conteniendo [u.nombre]
+  }
+
+  return grupos;
+}
+
+// Caso de prueba:
+console.log(agruparPorRol(usuarios));
+
+// Resultado esperado en el Map:
+// 'admin'   => ['Ana', 'Elena']
+// 'editor'  => ['Carlos', 'Marta']
+// 'usuario' => ['Luis']
